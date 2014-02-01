@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html>
+<html lang='<?php echo \core\Idioma::get(); ?>'>
 	<head>
 		<title><?php echo TITULO; ?></title>
-		<meta name="Description" content="Explicaci�n de la p�gina" /> 
+		<meta name="Description" content="Esta pagina contiene una tabla con datos sobre libros" /> 
 		<meta name="Keywords" content="inicio, mvc, modelo, vista, controlador, libros, libro, bilioteca" /> 
 		<meta name="Generator" content="esmvcphp framewroko" /> 
 	 	<meta name="Origen" content="salcenai" /> 
@@ -26,31 +26,25 @@
 		
 		<script type="text/javascript" >
 			/* l�neas del script */
-			
 		</script>
 		
 	</head>
 
-	<body>
+	<body id="body">
 	
-		<!-- Contenido que se visualizar� en el navegador, organizado con la ayuda de etiquetas html -->
+		<!-- Contenido que se visualizara en el navegador, organizado con la ayuda de etiquetas html -->
 		<div id="inicio"></div>
 		<div id="encabezado">
-			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/ipv_ies_palomeras.png" alt="logo" title="Logo" onclick="window.location.assign('http://www.iespalomeras.net/');"/>
-			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/departamento_informatica.png" alt="logo" title="Logo departamento"  onclick="window.location.assign('http://www.iespalomeras.net/index.php?option=com_wrapper&view=wrapper&Itemid=86');" />
-			<h1 id="titulo">Libros leídos</h1>
-			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/MVC_imagen2.png" alt="MVC_imagen2.png" title="Imagen de patrón MVC"  onclick="window.location.assign('<?php echo \core\URL::generar("inicio"); ?>');" height="100px" />
+			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/libros.png" width="100px" height="75px" alt="foto de libros" title="Logo" />
+			<h1 id="titulo">Libros</h1>
 		</div>
 		
 		<div id="div_menu" >
-			<fieldset>
-				<legend>Menú:</legend>
-					<ul id="menu" class="menu">
-						<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
-						<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
-						<?php echo \core\HTML_Tag::li_menu("item", array("categorias"), "Categorias"); ?>
-					</ul>
-			</fieldset>
+			<ul id="menu" class="menu">
+				<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
+				<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
+				<?php echo \core\HTML_Tag::li_menu("item", array("categorias"), "Categorias"); ?>
+			</ul>
 		</div>
 
 		<div id="view_content">

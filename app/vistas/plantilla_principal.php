@@ -2,7 +2,7 @@
 <html lang='<?php echo \core\Idioma::get(); ?>'>
 	<head>
 		<title><?php echo \core\Idioma::text("title", "plantilla_internacional"); ?></title>
-		<meta name="Description" content="Explicación de la página" /> 
+		<meta name="Description" content="Es la pagina principal del sitio Web" /> 
 		<meta name="Keywords" content="inicio, mvc, modelo, vista, controlador" /> 
 		<meta name="Generator" content="esmvcphp framewrok" /> 
 	 	<meta name="Origen" content="salcenai" /> 
@@ -12,7 +12,7 @@
 		<meta name="Viewport" content="maximum-scale=10.0" /> 
 		<meta name="revisit-after" content="1 days" /> 
 		<meta name="robots" content="INDEX,FOLLOW,NOODP" /> 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf8" /> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 		<meta http-equiv="Content-Language" content="<?php echo \core\Idioma::get(); ?>"/>
 	
 		<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -23,7 +23,7 @@
 			/* Definiciones hoja de estilos interna */
 		</style>
 		<?php if (isset($_GET["administrator"])): ?>
-		<link rel="stylesheet" type="text/css" href="<?php echo URL_ROOT; ?>recursos/css/administrator.css" />
+			<link rel="stylesheet" type="text/css" href="<?php echo URL_ROOT; ?>recursos/css/administrator.css" />
 		<?php endif; ?>
 		
 		<script type='text/javascript' src="<?php echo URL_ROOT."recursos".DS."js".DS."jquery".DS."jquery-1.10.2.min.js"; ?>" ></script>
@@ -32,17 +32,13 @@
 		
 		<script type="text/javascript" >
 			/* líneas del script */
-			function saludo() {
-				alert("Bienvenido al primer ejercicio de Desarrollo Web en Entorno Servidor");
-			}
 		</script>
 		
 	</head>
 
-	<body onload='onload();'>
+	<body id="body" onload='onload();'>
 		<div id="encabezado">
-			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/ipv_ies_palomeras.png" alt="logo" title="Logo" onclick="window.location.assign('http://www.iespalomeras.net/');"/>
-			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/departamento_informatica.png" alt="logo" title="Logo departamento"  onclick="window.location.assign('http://www.iespalomeras.net/index.php?option=com_wrapper&view=wrapper&Itemid=86');" />
+			<img src="<?php echo URL_ROOT; ?>recursos/imagenes/MVC_imagen2.png" width="100px" height="75px" alt="foto de MVC" title="Logo" />
 			<h1 id="titulo">
 			<?php if (isset($_GET["administrator"])): ?>
 				Administrator:
@@ -73,18 +69,11 @@
 		</div>
 		
 		<div id="div_menu" >
-			<fieldset>
-				<legend>Menú:</legend>
-					<ul id="menu" class="menu">
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar(); ?>" title="Inicio">Inicio</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
-						<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
-						
-<!--					<li class="item"><a href="<?php //echo \core\URL::generar("categorias"); ?>" title="Categorías">Categorías</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("categorias"), "Categorias"); ?>
-					
-					</ul>
-			</fieldset>
+			<ul id="menu" class="menu">
+				<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
+				<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
+				<?php echo \core\HTML_Tag::li_menu("item", array("categorias"), "Categorias"); ?>
+			</ul>
 		</div>
 
 		<div id="view_content">
@@ -95,7 +84,6 @@
 			
 		</div>
 
-	
 		<div id="pie">
 			Documento actualizado por Aitor Salas. <a href="a@a.com">Contactar</a><br />
 			Fecha última actualización: 30 de Enero de 2014.
