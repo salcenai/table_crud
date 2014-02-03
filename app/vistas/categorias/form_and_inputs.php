@@ -4,6 +4,7 @@
 	<?php echo \core\HTML_Tag::form_registrar($datos["form_name"], "post"); ?>
 	
 	<input id='id' name='id' type='hidden' value='<?php echo \core\Array_Datos::values('id', $datos); ?>' />
+        
 	Nombre: <input id='nombre' name='nombre' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('nombre', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('nombre', $datos); ?>
 	<br />

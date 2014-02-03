@@ -1,6 +1,8 @@
 
 <form method='post' name='<?php echo \core\Array_Datos::contenido("form_name", $datos); ?>' action="<?php echo \core\URL::generar($datos['controlador_clase'].'/validar_'.$datos['controlador_metodo']) ?>" >
 	
+        <?php echo \core\HTML_Tag::form_registrar($datos["form_name"], "post"); ?>
+    
 	<input id='id' name='id' type='hidden' value='<?php echo \core\Array_Datos::values('id', $datos); ?>' />
         
 	Titulo: <input id='titulo' name='titulo' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('titulo', $datos); ?>'/>
@@ -19,7 +21,6 @@
         Precio: <input id='precio' name='precio' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('precio', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('precio', $datos); ?>
 	<br />
-        
         
 	<br />
 	<?php echo \core\HTML_Tag::span_error('errores_validacion', $datos); ?>

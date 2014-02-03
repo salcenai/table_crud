@@ -174,7 +174,6 @@ class HTML_Tag extends \core\Clase_Base {
 			$texto,
 			array $otros_argumentos = array()
 	) {
-		
 		self::$use_post_request_form = true;
 		
 		$link = "";
@@ -192,13 +191,14 @@ class HTML_Tag extends \core\Clase_Base {
 		else {
 			$id = 0;
 		}
+                
 		$argumentos ="";
 		foreach ($otros_argumentos as $key => $value) {
 			$argumentos .= " $key ='$value' ";
 		}
 		$uri = \core\URL::http_generar($query_string);
 		$link = "<a class='$clases' onclick='submit_post_request_form(\"$uri\", \"$id\");' $argumentos >$texto</a>";
-		return $link;
+                return $link;
 		
 	}
 	

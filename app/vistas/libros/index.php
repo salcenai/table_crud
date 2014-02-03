@@ -14,8 +14,7 @@
 		</thead>
 		<tbody>
 			<?php
-			foreach ($datos['filas'] as $fila)
-			{
+			foreach ($datos['filas'] as $fila){
 				echo "
 					<tr>
 						<td>{$fila['titulo']}</td>
@@ -23,8 +22,8 @@
 						<td>{$fila['comentario']}</td>
 						<td>".\core\Conversiones::decimal_punto_a_coma_y_miles($fila['precio'])."</td>
 						<td>
-							<a href='".\core\URL::generar(array("libros","form_modificar",$fila['id']))."' >Modificar</a>
-							<a href='".\core\URL::generar("libros/form_borrar/{$fila['id']}")."' >Borrar</a>
+						".\core\HTML_Tag::a_boton_onclick("boton", array("libros", "form_modificar", $fila['id']), "Modificar")." ".
+                                                \core\HTML_Tag::a_boton_onclick("boton", array("libros", "form_borrar", $fila['id']), "Borrar")."
 						</td>
 					</tr>
 					";

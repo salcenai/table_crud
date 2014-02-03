@@ -60,6 +60,24 @@
 			Fecha última actualización: 30 de Enero de 2014.
 		</div>
 		
+                <?php echo \core\HTML_Tag::post_request_form(); ?>
+                
+                <script type="text/javascript" />
+			var alerta;
+			function onload() {
+				visualizar_alerta();
+			}
+
+			function visualizar_alerta() {
+				if (alerta != undefined) {
+					$("body").css("opacity","0.3").css("filter", "alpha(opacity=30)");
+					alert(alerta);
+					alerta = undefined;
+					$("body").css("opacity","1.0").css("filter", "alpha(opacity=100)");
+				}
+			}
+		</script>
+                
 		<div id='globals'>
 			<?php
 				print "<pre>"; print_r($GLOBALS);print "</pre>";
