@@ -31,8 +31,7 @@ class articulos extends \core\Controlador {
 		
 	}
 
-	public function validar_form_insertar(array $datos=array())
-	{	
+	public function validar_form_insertar(array $datos=array()){	
 		$validaciones=array(
 			 "nombre" =>"errores_requerido && errores_texto && errores_unicidad_insertar:nombre/articulos/nombre"
 			, "precio" => "errores_precio"

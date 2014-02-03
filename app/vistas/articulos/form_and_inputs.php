@@ -27,5 +27,5 @@
 	
 	<input type='submit' value='Enviar'>
 	<input type='reset' value='Limpiar'>
-	<button type='button' onclick='location.assign("?menu=articulos&submenu=index");'>Cancelar</button>
+	<button onclick='location.assign("?menu=articulos&submenu=index");'>Cancelar</button>
 </form>
