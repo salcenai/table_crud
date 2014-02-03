@@ -22,8 +22,9 @@
 			/* Definiciones hoja de estilos interna */
 		</style>
 
+		<script type='text/javascript' src="<?php echo URL_ROOT ?>recursos/js/jquery/jquery-1.10.2.min.js" ></script>
 		<script type="text/javascript" src=""></script>
-		
+                
 		<script type="text/javascript" >
 			/* l�neas del script */
 		</script>
