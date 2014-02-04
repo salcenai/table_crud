@@ -47,6 +47,8 @@
 		</div>
 		
 		<!-- Div del recuadro de los usuarios -->
+		
+		<!--
 		<div id="div_derecha_logo">
 			Usuario: 
 			<?php 
@@ -67,12 +69,12 @@
 			echo "<br />Tiempo inactivo: <span id='tiempo_inactivo'></span>";	
 			?>
 		</div>
-		
+		-->
+  
 		<div id="div_menu" >
 			<ul id="menu" class="menu">
 				<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
 				<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
-				<?php echo \core\HTML_Tag::li_menu("item", array("categorias"), "Categorias"); ?>
 			</ul>
 		</div>
 
@@ -132,6 +134,7 @@ heredoc;
 	
 		<div id='globals'>
 			<?php
+				/*
 				 print "<pre>"; 
 				  //print_r($GLOBALS);
 				 print("\$_GET "); print_r($_GET);
@@ -143,6 +146,7 @@ heredoc;
 				 print "</pre>";
 				 print("xdebug_get_code_coverage() ");
 				 var_dump(xdebug_get_code_coverage());
+				 */
 			?>
 		</div>
 		

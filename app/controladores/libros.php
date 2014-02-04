@@ -38,13 +38,13 @@ class libros extends \core\Controlador {
 			"titulo" => "errores_requerido && errores_texto && errores_prohibido_punto_y_coma && errores_unicidad_insertar:titulo/libros/titulo",
 			"autor" => "errores_requerido && errores_texto && errores_prohibido_punto_y_coma",
 			"comentario" => "errores_texto && errores_prohibido_punto_y_coma",
-                        "precio" => "errores_precio",
+            "precio" => "errores_precio",
 		);
                 
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos))
             $datos["errores"]["errores_validacion"]="Corrige los errores.";
 		else {
-                        $datos['values']['precio'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['precio']);
+            $datos['values']['precio'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['precio']);
 			if ( ! $validacion = \modelos\Datos_SQL::table("libros")->insert($datos["values"])) // Devuelve true o false
 				$datos["errores"]["errores_validacion"]="No se han podido grabar los datos en la bd.";
 		}
@@ -55,9 +55,11 @@ class libros extends \core\Controlador {
 			// Se ha grabado la modificación. Devolvemos el control al la situacion anterior a la petición del form_modificar
 			$datos = array("alerta" => "Se han grabado correctamente los detalles");
 			// Definir el controlador que responderá después de la inserción
-			$this->cargar_controlador('libros', 'index',$datos);
-                        \core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("libros/index"));
+			
+			\core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("libros/index"));
 			\core\HTTP_Respuesta::enviar();
+			$this->cargar_controlador('libros', 'index',$datos);
+            
 		}
 	}
 
@@ -86,7 +88,7 @@ class libros extends \core\Controlador {
                             
                             $clausulas = array('order_by' => " titulo ");
                             $datos['libros'] = \modelos\Datos_SQL::table("libros")->select( $clausulas);
-
+							$datos['values']['precio'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['precio']);
                         }
                     }
                 }
@@ -103,7 +105,7 @@ class libros extends \core\Controlador {
 			"titulo" => "errores_requerido && errores_texto && errores_prohibido_punto_y_coma && errores_unicidad_modificar:id,titulo/libros/titulo,id",
 			"autor" => "errores_requerido && errores_texto && errores_prohibido_punto_y_coma",
 			"comentario" => "errores_texto && errores_prohibido_punto_y_coma",
-                        "precio" => "errores_precio",
+            "precio" => "errores_precio",
 		);
                 
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
@@ -111,18 +113,20 @@ class libros extends \core\Controlador {
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
 		}
 		else {
+			$datos['values']['precio'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['precio']);
 			if ( ! $validacion = \modelos\Datos_SQL::table("libros")->update($datos["values"])) // Devuelve true o false
 				$datos["errores"]["errores_validacion"]="No se han podido grabar los datos en la bd.";
 		}
 		if ( ! $validacion) //Devolvemos el formulario para que lo intente corregir de nuevo
 			$this->cargar_controlador('libros', 'form_modificar',$datos);
-		else
-		{
+		else{
 			$datos = array("alerta" => "Se han modificado correctamente.");
 			// Definir el controlador que responderá después de la inserción
-			$this->cargar_controlador('libros', 'index',$datos);	
-                        \core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("libros/index"));
+			
+			\core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("libros/index"));
 			\core\HTTP_Respuesta::enviar();
+			$this->cargar_controlador('libros', 'index',$datos);
+            
 		}
 	}
 
@@ -181,10 +185,10 @@ class libros extends \core\Controlador {
 				return;
 			}
 			else{
-                            $datos = array("alerta" => "Se ha borrado correctamente.");
-                            //$this->cargar_controlador('libros', 'index',$datos);	
-                            \core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("libros/index"));
-                            \core\HTTP_Respuesta::enviar();
+					$datos = array("alerta" => "Se ha borrado correctamente.");
+					//$this->cargar_controlador('libros', 'index',$datos);	
+					\core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("libros/index"));
+					\core\HTTP_Respuesta::enviar();
 			}
 		}
 	}

@@ -26,7 +26,7 @@ create table if not exists daw2_libros(
 ,   titulo varchar(100) not null
 ,   autor varchar(100) not null
 ,   comentario varchar(255) null
-,   precio float unsigned
+,   precio decimal(10,2) unsigned
 ,   primary key (id)
 ,   unique (titulo)
 )engine = myisam default charset=utf8;

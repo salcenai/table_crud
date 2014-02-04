@@ -14,8 +14,8 @@ class libros extends \core\sgbd\bd {
 			( id integer unsigned auto_increment primary key
 			, titulo varchar(50) not null unique
 			, autor varchar(500) not null
-                        , comentario varchar(255) null
-                        , precio float unsigned
+            , comentario varchar(255) null
+            , precio decimal(10,2) unsigned
 			)
 			engine = myisam;	
 		";

@@ -44,7 +44,6 @@
 			<ul id="menu" class="menu">
 				<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
 				<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
-				<?php echo \core\HTML_Tag::li_menu("item", array("categorias"), "Categorias"); ?>
 			</ul>
 		</div>
 
@@ -81,7 +80,9 @@
                 
 		<div id='globals'>
 			<?php
+				/*
 				print "<pre>"; print_r($GLOBALS);print "</pre>";
+				*/
 			?>
 		</div>
 		

@@ -23,7 +23,7 @@
 						<td>".\core\Conversiones::decimal_punto_a_coma_y_miles($fila['precio'])."</td>
 						<td>
 						".\core\HTML_Tag::a_boton_onclick("boton", array("libros", "form_modificar", $fila['id']), "Modificar")." ".
-                                                \core\HTML_Tag::a_boton_onclick("boton", array("libros", "form_borrar", $fila['id']), "Borrar")."
+                        \core\HTML_Tag::a_boton_onclick("boton", array("libros", "form_borrar", $fila['id']), "Borrar")."
 						</td>
 					</tr>
 					";
