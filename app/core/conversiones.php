@@ -146,5 +146,33 @@ class Conversiones {
 		
 	}
 	
+        
+        public static function fecha_mysql_a_es($fecha_mysql) {
+		
+		$patron_fecha="/^\d{4}\-\d{1,2}\-\d{1,2}$/";
+		if (preg_match($patron_fecha, $fecha_mysql)) {
+			$parte = explode('-', $fecha_mysql);
+			$fecha = $parte[2].'-'.$parte[1].'-'.$parte[0];
+                        return($fecha);
+		}
+		else
+			return $fecha_mysql;
+		
+	}
+        
+        
+        public static function fecha_es_a_mysql($fecha_es) {
+		
+		$patron_fecha="/^\d{1,2}\-\d{1,2}\-\d{4}$/";
+		if (preg_match($patron_fecha, $fecha_es)) {
+			$parte = explode('-', $fecha_es);
+			$fecha = $parte[2].'-'.$parte[1].'-'.$parte[0];
+			return($fecha);
+		}
+		else
+			return $fecha_es;
+		
+	}
+        
 	
 } // Fin de la clase

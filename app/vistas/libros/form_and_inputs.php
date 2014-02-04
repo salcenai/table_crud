@@ -5,11 +5,11 @@
     
 	<input id='id' name='id' type='hidden' value='<?php echo \core\Array_Datos::values('id', $datos); ?>' />
         
-	Titulo: <input id='titulo' name='titulo' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('titulo', $datos); ?>'/>
+	Titulo: <input id='tituloLibro' name='titulo' type='text' size='50'  maxlength='50' value='<?php echo \core\Array_Datos::values('titulo', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('titulo', $datos); ?>
 	<br />
         
-        Autor: <input id='autor' name='autor' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('autor', $datos); ?>'/>
+        Autor: <input id='autor' name='autor' type='text' size='50'  maxlength='50' value='<?php echo \core\Array_Datos::values('autor', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('autor', $datos); ?>
 	<br />
         
@@ -18,8 +18,12 @@
 	<?php echo \core\HTML_Tag::span_error('comentario', $datos); ?>
         <br />
         
-        Precio: <input id='precio' name='precio' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('precio', $datos); ?>'/>
+        Precio: <input id='precio' name='precio' type='text' size='12'  maxlength='12' value='<?php echo \core\Array_Datos::values('precio', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('precio', $datos); ?>
+	<br />
+        
+        Fecha de Publicacion: <input id='fecha_publicacion' name='fecha_publicacion' type='text' size='12'  maxlength='10' value='<?php echo \core\Array_Datos::values('fecha_publicacion', $datos); ?>'/>
+	<?php echo \core\HTML_Tag::span_error('fecha_publicacion', $datos); ?>
 	<br />
         
 	<br />

@@ -14,8 +14,9 @@ class libros extends \core\sgbd\bd {
 			( id integer unsigned auto_increment primary key
 			, titulo varchar(50) not null unique
 			, autor varchar(500) not null
-            , comentario varchar(255) null
-            , precio decimal(10,2) unsigned
+                        , comentario varchar(255) null
+                        , precio decimal(10,2) unsigned
+                        , fecha_publicacion date null
 			)
 			engine = myisam;	
 		";
@@ -55,7 +56,10 @@ class libros extends \core\sgbd\bd {
 			$validacion = false;
 			$fila['errores']['precio'] = "Esta columna debe ser un float.";
 		}
-		
+		if ( ! isset($fila['values']['fecha_publicacion'])) {
+			$validacion = false;
+			$fila['errores']['fecha_publicacion'] = "Esta columna no puede esta vacía.";
+		}
                 
                 
 		if ($validacion) {

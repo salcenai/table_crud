@@ -101,7 +101,6 @@ form {
 	padding: 5px;
 }
 
-
 table{
 	border: 2px solid grey;
 	border-collapse: collapse;
@@ -114,3 +113,9 @@ table td, table th {
 th{
 	background-color:#8888FF;
 }
+
+.boton{
+	color:blue;
+	text-decoration:underline;
+}
+
