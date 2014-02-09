@@ -146,7 +146,12 @@ class Conversiones {
 		
 	}
 	
-        
+        /**
+	 * Convierte una fecha de formato mysql a formato español.
+         * Ejemplo: de 2014-31-12 a 31-12-2014
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
         public static function fecha_mysql_a_es($fecha_mysql) {
 		
 		$patron_fecha="/^\d{4}\-\d{1,2}\-\d{1,2}$/";
@@ -160,7 +165,12 @@ class Conversiones {
 		
 	}
         
-        
+                /**
+	 * Convierte una fecha de formato español la formato de mysql.
+         * Ejemplo: de  31-12-2014 a 2014-31-12
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
         public static function fecha_es_a_mysql($fecha_es) {
 		
 		$patron_fecha="/^\d{1,2}\-\d{1,2}\-\d{4}$/";

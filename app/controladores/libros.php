@@ -8,6 +8,7 @@ class libros extends \core\Controlador {
 	/**
 	 * Presenta una <table> con las filas de la tabla con igual nombre que la clase.
 	 * @param array $datos
+         * @author Aitor Salas
 	 */
 	public function index(array $datos=array()) {
 		
@@ -19,7 +20,11 @@ class libros extends \core\Controlador {
 		
 	}
 	
-	
+	/**
+	 * Presenta el formulario de insercion de datos a la tabla de mismo nombre que la clase.
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
 	public function form_insertar(array $datos=array()) {
 		
                 $datos["form_name"] = __FUNCTION__;
@@ -33,6 +38,12 @@ class libros extends \core\Controlador {
 		
 	}
 
+        /**
+	 * Valida el formulario incluido por el usuario, en caso de que los datos sean erroneos mostrara
+         * los errores del usuario en la insercion.
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
 	public function validar_form_insertar(array $datos=array()){	
 		$validaciones = array(
 			"titulo" => "errores_requerido && errores_texto && errores_prohibido_punto_y_coma && errores_unicidad_insertar:titulo/libros/titulo",
@@ -65,7 +76,12 @@ class libros extends \core\Controlador {
 		}
 	}
 
-	
+	/**
+	 * Mostrara el formulario de modificacion al usuario de la fila del id aportado, dando los valores por
+         * defecto de el estado de la fila actual.
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
         public function form_modificar(array $datos = array()) {
 
                 $datos["form_name"] = __FUNCTION__;
@@ -101,6 +117,12 @@ class libros extends \core\Controlador {
                 \core\HTTP_Respuesta::enviar($http_body);
             }
 
+        /**
+	 * Valida el formulario de modificacion enviado por el usuario, en caso de que los datos sean erroneos mostrara
+         * los errores del usuario en la modificacion.
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
 	public function validar_form_modificar(array $datos=array()) {	
 		
 		$validaciones = array(
@@ -135,14 +157,18 @@ class libros extends \core\Controlador {
 		}
 	}
 
-	
-	
+	/**
+	 * Muestra un formulario de solo lectura al usuario de la fila de id seleccionada para borrar de
+         * la tabla.
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
 	public function form_borrar(array $datos=array()) {
 		
                 $datos["form_name"] = __FUNCTION__;
                 
 		$validaciones=array(
-			"id" => "errores_requerido && errores_numero_entero_positivo"
+			"id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/libros/id"
 		);
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
 			$datos['mensaje'] = 'Datos erróneos para identificar el libro a borrar';
@@ -170,7 +196,11 @@ class libros extends \core\Controlador {
 	}
 
         
-        
+        /**
+	 * Valida que la id del libro a borrar corresponda a la del id seleccionado y borra la fila de la tabla.
+	 * @param array $datos
+         * @author Aitor Salas
+	 */
 	public function validar_form_borrar(array $datos=array()) {	
 		$validaciones=array(
 			 "id" => "errores_requerido && errores_numero_entero_positivo"
